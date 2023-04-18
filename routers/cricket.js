@@ -7,7 +7,7 @@ const Cric=require('../models/crick')
 router.get('/',async(req,res)=>{
 
     try{
-        const cricket=await Cric.findby()
+        const cricket=await Cric.find()
         res.json(cricket)
     }catch(err){
         res.send('Error'+err)
@@ -32,7 +32,17 @@ router.patch('/:id',async(req,res)=>{
 
     try{
         const cricket=await Cric.findById(req.params.id)
-        cricket.sub=req.body.sub
+        //cricket.sub=req.body.sub
+        // Update the document fields based on the fields present in the request body
+    if (req.body.sub) {
+        cricket.sub = req.body.sub;
+      }
+      if (req.body.name) {
+        cricket.name = req.body.name;
+      }
+      if (req.body.captain) {
+        cricket.captain = req.body.captain;
+      }
         const datafinal=await cricket.save()
         res.json(datafinal)
     }catch(err){
@@ -57,5 +67,18 @@ router.post('/',async(req,res)=>{
     }
     
 })
+//Delete data 
+router.delete('/:id', async (req, res) => {
+    try {
+      const deletedCricket = await Cric.findByIdAndDelete(req.params.id);
+      if (!deletedCricket) {
+        return res.status(404).json({ error: 'Document not found' });
+      }
+      res.json(deletedCricket);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
 
 module.exports=router

@@ -1,5 +1,7 @@
 'add file'
-
+##
+to start the serve click on 
+`nodemon run start`
 
 first step to:
 1.npm init 
