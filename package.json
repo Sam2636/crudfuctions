@@ -1,0 +1,27 @@
+{
+  "name": "crudfuctions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sam2636/crudfuctions.git"
+  },
+  "author": "sam2636",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sam2636/crudfuctions/issues"
+  },
+  "homepage": "https://github.com/Sam2636/crudfuctions#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.2.0",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
